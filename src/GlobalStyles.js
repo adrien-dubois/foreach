@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         /*----- COLORS ------*/
         --opaque-bg: #ffffff60;
         --dark-bg: #101522;
+        --grey-color: #acacac;
         --white-color: #FFF;
         --white-antique: #FAECD9;
         --black-color: #1D1E16;
@@ -51,8 +52,20 @@ const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         background-color: var(--white-color);
         color: var(--black-color);
+    }
+
+    body, input{
         font-family: var(--poppins-font);
     }
+
+    .blue-glassmorphism {
+    background: rgb(39, 51, 89, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
 
 `;
 

@@ -47,5 +47,10 @@ export const Div = styled.section`
             align-items: center;
             overflow-x: hidden;
         }
+
+        .message-icon{
+            margin-left: 10px;
+            display: inline-block;
+        }
     }
 `

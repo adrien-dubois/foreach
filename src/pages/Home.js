@@ -20,7 +20,7 @@ function Home() {
             <p>Foreach vous connecte avec votre monde <span> - Made by devs for devs</span> </p>
             <Link to="/chat">
               <Button>
-                Let's chat <FaComments/> 
+                Let's chat <FaComments className='message-icon' /> 
               </Button>
             </Link>
           </div>
