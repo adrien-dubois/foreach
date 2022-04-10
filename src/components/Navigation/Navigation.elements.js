@@ -121,7 +121,9 @@ export const NavItem = styled.li`
     &::after{
         display: block;
         content: '';
-        border-bottom: 3px solid var(--blue-color);
+        border-width: 1px;
+        border-style: solid;
+        border-image: var(--btn-gradient);
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }

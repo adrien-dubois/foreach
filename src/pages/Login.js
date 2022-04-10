@@ -70,7 +70,9 @@ function Login() {
                 />
               </div>
              
-             <input type="submit" value="Connexion" className='btn solid' /> 
+             <button type="submit"  className='btn solid'>
+               Connexion
+             </button>
 
              <p className="register-text">
                Pas encore inscrit? <Link to='/signup'>S'inscrire</Link>
