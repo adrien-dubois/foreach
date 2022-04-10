@@ -864,7 +864,7 @@ export const LoginSvg = (props) => {
     <svg
     xmlns="http://www.w3.org/2000/svg"
     data-name="Layer 1"
-    viewBox="0 0 1100 1100"
+    viewBox="0 0 1200 1200"
     width={802.001}
     height={833.54}
     {...props}

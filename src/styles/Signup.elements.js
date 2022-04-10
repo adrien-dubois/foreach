@@ -21,8 +21,8 @@ export const Div = styled.section`
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(0, 0, 0, 0.3);
-        top: -10%;
-        right: 48%;
+        bottom: -126rem;
+        left: 48%;
         transform: translateY(-50%);
     }
 
@@ -42,13 +42,50 @@ export const Div = styled.section`
             justify-content: space-between;
             text-align: center;
             align-items: flex-start;
+
+            .signup-profile-pic{
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                position: relative;
+
+                &__img{
+                    display: inline-block;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 2px solid var(--grey-color);
+                    background: rgb(39, 51, 89, 0.4);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
+                    object-fit: contain;
+                }
+
+                .image-upload-label{
+                    &__icon{
+                        position: absolute;
+                        bottom: 0;
+                        right: 10px;
+                        color: var(--white-color);
+                        background: transparent;
+                        cursor: pointer;
+                        z-index: 99;
+                        transition: all .4 ease-in-out;
+
+                        &:hover{
+                            color: #f43b47;
+                        }
+                    }
+                }
+            }
         }
 
         .image{
             svg{
                 position: absolute;
-                left: 8%;
-                bottom: -40%;
+                right: -8%;
+                bottom: -52%;
             }
         }
 
