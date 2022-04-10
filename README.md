@@ -16,3 +16,7 @@ This is the repository of the Frontend Side of a Chat application, based on a **
 - `React Icons` 4.3.1
 - `React Router Dom` 6.3.0
 - `Styled Components` 5.3.5
+- `Redux` 4.1.2
+- `Redux-persist` 6.0.0
+- `@reduxjs/toolkit` 1.8.1
+- `socket.io-client` 4.4.1
