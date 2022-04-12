@@ -12,8 +12,9 @@ import {
   FaPlusCircle,
   FaGoogle 
 } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LogoChat from '../assets/user.png'
+import { useSignupUserMutation } from '../services/appApi'
 
 
 
@@ -23,6 +24,8 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [signupUser, { isLoading, error }] = useSignupUserMutation();
+  const navigate = useNavigate()
 
   // Image upload state
   const [image, setImage] = useState(null)
@@ -68,7 +71,14 @@ function Signup() {
     if(!image) return alert('Merci de choisir une photo de profil');
     const url = await uploadImage(image);
     console.log(url);
+
     //signup the user
+    signupUser({ name, email, password, picture: url }).then(({ data }) => {
+      if(data){
+        console.log(data);
+        navigate("/chat");
+      }
+    })
   }
 
   return (

@@ -20,3 +20,5 @@ This is the repository of the Frontend Side of a Chat application, based on a **
 - `Redux-persist` 6.0.0
 - `@reduxjs/toolkit` 1.8.1
 - `socket.io-client` 4.4.1
+- `react-redux` 7.2.8
+- `redux-thunk` 2.4.1

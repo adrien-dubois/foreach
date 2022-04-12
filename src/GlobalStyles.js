@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         list-style-type: none;
+        list-style: none;
         outline: none;
         border: none;
         text-decoration: none;

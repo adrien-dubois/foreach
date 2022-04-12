@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
+import { BiLogOut } from 'react-icons/bi'
 import { IconContext } from 'react-icons/lib';
+import { useSelector } from 'react-redux';
 import { Button } from '../../GlobalStyles';
-
+import avatar from '../../assets/menu.jpg'
 import { 
     Nav, 
     NavbarContainer, 
@@ -13,15 +15,20 @@ import {
     NavItem, 
     NavLinks,
     NavItemBtn,
-    NavBtnLink
+    NavBtnLink,
+    Action
 } from './Navigation.elements';
 
 const Navigation = () => {
+
+    /*----- NAVBAR PART -----*/
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
-
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+
+    const [userMenu, setUserMenu] = useState(false)
+    const handleMenu = () => setUserMenu(!userMenu)
 
     const showButton = () => {
         if(window.innerWidth <= 960){
@@ -34,8 +41,14 @@ const Navigation = () => {
     useEffect(() => {
         showButton();
     }, []);
+    
+
 
     window.addEventListener('resize', showButton);
+
+    /*----- APPLICATION PART -----*/
+    const user = useSelector((state) => state.user);
+
 
     return (
         <>
@@ -71,6 +84,8 @@ const Navigation = () => {
                             </NavLinks>
                         </NavItem>
 
+                        {/* IF USER IS CONECTED DONT SHOW LOGIN BUTTON */}
+                        {!user &&
                         <NavItemBtn>
                             {button ? (
                                 <NavBtnLink to="/login">
@@ -86,6 +101,24 @@ const Navigation = () => {
                                 </NavBtnLink> 
                             )}
                         </NavItemBtn>
+                        }
+
+                        {/* USER MENU */}
+                        <IconContext.Provider value={{ color: 'var(--black-color)' }}>
+                        <Action>
+                            <div className="profile" onClick={handleMenu}>
+                                <img src={avatar} alt="User pic" />
+                            </div>
+                            <div className={userMenu ? 'menu active' : 'menu'}>
+                                <h3>User Name</h3>
+                                <ul>
+                                    <li><FaUser/><a href="# ">Profil</a> </li>
+                                    <li><FaUser/><a href="# ">Profil</a> </li>
+                                    <li><BiLogOut/><a href="# ">Déconnexion</a> </li>
+                                </ul>
+                            </div>
+                        </Action>
+                        </IconContext.Provider>
 
                     </NavMenu>
 

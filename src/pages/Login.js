@@ -10,17 +10,28 @@ import {
   FaEnvelope, 
   FaGoogle 
 } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useLoginUserMutation } from '../services/appApi'
 
 function Login() {
 
     // Input form states
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loginUser, { isLoading, error }] = useLoginUserMutation();
+    const navigate = useNavigate();
 
     function handleLogin(e){
       e.preventDefault();
-      //login logic
+
+      // LOGIN LOGIC
+      loginUser({ email, password }).then(({ data }) => {
+        if(data) {
+          // socket work
+          // navigate to the chat
+          navigate('/chat');
+        }
+      })
     }
 
   return (
