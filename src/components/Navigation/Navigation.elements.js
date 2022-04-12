@@ -250,26 +250,34 @@ export const Action = styled.div`
                 border-top: 1px solid rgba(0, 0, 0, .5);
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
 
-                svg{
-                    margin-right: 10px;
-                    opacity: .4;
-                    transition: .5s ease-in-out;
+                button{
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg{
+                        margin-right: 10px;
+                        opacity: .5;
+                        transition: .5s ease-in-out;
+                    }
                 }
 
-                a{
-                    display: inline-block;
+                a, button{
                     color: var(--black-color);
+                    font-size: 1rem;
                     font-weight: 500;
-                    opacity: .4;
+                    opacity: .5;
+                    border: none;
+                    outline: 0;
+                    background: 0 0;
+                    cursor: pointer;
                     transition: .5s ease-in-out;
                 }
 
                 &:hover{
-                    svg{
-                        opacity: .8;
-                    }
-                    a{
+                    svg, a, button{
                         opacity: .8;
                     }
                 }

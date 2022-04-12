@@ -4,7 +4,7 @@ import { BiLogOut } from 'react-icons/bi'
 import { IconContext } from 'react-icons/lib';
 import { useSelector } from 'react-redux';
 import { Button } from '../../GlobalStyles';
-import avatar from '../../assets/menu.jpg'
+import { useLogoutUserMutation } from '../../services/appApi'
 import { 
     Nav, 
     NavbarContainer, 
@@ -27,6 +27,7 @@ const Navigation = () => {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
+    /*----- DROPDOWN MENU -----*/
     const [userMenu, setUserMenu] = useState(false)
     const handleMenu = () => setUserMenu(!userMenu)
 
@@ -48,6 +49,14 @@ const Navigation = () => {
 
     /*----- APPLICATION PART -----*/
     const user = useSelector((state) => state.user);
+    const [logoutUser] = useLogoutUserMutation()
+
+    async function handleLogout(e){
+        e.preventDefault();
+        await logoutUser(user);
+        // redirect to homepage
+        window.location.replace('/');
+    }
 
 
     return (
@@ -104,21 +113,35 @@ const Navigation = () => {
                         }
 
                         {/* USER MENU */}
-                        <IconContext.Provider value={{ color: 'var(--black-color)' }}>
+                        {user &&
+                        <IconContext.Provider value={{ color: 'var(--black-color)', size: '20px'}} >
                         <Action>
                             <div className="profile" onClick={handleMenu}>
-                                <img src={avatar} alt="User pic" />
+                                <img src={user.picture} alt="User picture" />
                             </div>
                             <div className={userMenu ? 'menu active' : 'menu'}>
-                                <h3>User Name</h3>
+                                <h3>{user.name}</h3>
                                 <ul>
-                                    <li><FaUser/><a href="# ">Profil</a> </li>
-                                    <li><FaUser/><a href="# ">Profil</a> </li>
-                                    <li><BiLogOut/><a href="# ">Déconnexion</a> </li>
+                                    <li>
+                                        <button>
+                                            <FaUser/>Profil
+                                        </button> 
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <FaUser/>Profil
+                                        </button> 
+                                    </li>
+                                    <li>
+                                        <button onClick={handleLogout}>
+                                            <BiLogOut/>Déconnexion
+                                        </button>
+                                    </li>
                                 </ul>
                             </div>
                         </Action>
                         </IconContext.Provider>
+                        }
 
                     </NavMenu>
 

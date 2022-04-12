@@ -64,4 +64,17 @@ export const MsgOutput = styled.div`
         background-color: #737272;
         border: 1px solid #000;
     }
+
+    .alert{
+        padding: 1rem .8rem;
+        width: 100%;
+        text-align: center;
+        font-style: italic;
+        font-weight: 500;
+        background: rgba(244, 59, 71, 0.4);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
 `;

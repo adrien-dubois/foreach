@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Div } from './Sidebar.elements'
 
 function Sidebar() {
@@ -8,6 +9,12 @@ function Sidebar() {
     'second room',
     'third room'
   ]
+
+  const user = useSelector((state) => state.user);
+
+  if(!user){
+    return <></>;
+  }
 
   return (
     <>
