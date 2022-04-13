@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Navigation from '../components/Navigation/Navigation'
 import { Div } from '../styles/Login.elements'
 import { RegisterSvg } from '../components/SvgComponent'
@@ -12,6 +12,7 @@ import {
 } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../services/appApi'
+import { AppContext } from '../context/appContext'
 
 function Login() {
 
@@ -20,6 +21,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [loginUser, { isLoading, error }] = useLoginUserMutation();
     const navigate = useNavigate();
+    const { socket } = useContext(AppContext)
 
     function handleLogin(e){
       e.preventDefault();
@@ -28,6 +30,7 @@ function Login() {
       loginUser({ email, password }).then(({ data }) => {
         if(data) {
           // socket work
+          socket.emit('new-user');
           // navigate to the chat
           navigate('/chat');
         }

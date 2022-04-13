@@ -21,4 +21,10 @@ export const Div = styled.section`
             border-radius: 0 0 8px 8px;
         }
     }
+
+    .membre{
+        li{
+            cursor: pointer;
+        }
+    }
 `;

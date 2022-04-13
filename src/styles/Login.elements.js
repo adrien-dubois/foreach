@@ -42,6 +42,21 @@ export const Div = styled.section`
             justify-content: space-between;
             text-align: center;
             align-items: flex-start;
+
+            @media screen and (max-width: 900px){
+                grid-template-columns: 1fr;
+                flex-direction: row-reverse;
+                .image{
+                    order: 2;
+                    svg{
+                        position: relative;
+                        width: 60%;
+                    }
+                }
+                form{
+                    order: 1;
+                }
+            }
         }
 
         .image{
