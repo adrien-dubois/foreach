@@ -47,7 +47,10 @@ export const MsgOutput = styled.div`
     height: 80vh;
     border: 1px solid var(--grey-color);
     overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 6px 6px 0 0;
+    background: #272F4D;
+    display: grid;
 
     &::-webkit-scrollbar-track {
         padding: 2px 0;
@@ -77,4 +80,64 @@ export const MsgOutput = styled.div`
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(0, 0, 0, 0.3);
     }
+
+    .msg-wrapper{
+
+        &__date{
+            padding: 1rem .8rem;
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+            background: rgb(39, 51, 89, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        &__msg{
+            position: relative;
+            font-size: 1rem;
+            background: var(--msg-color);
+            max-width: 80%;
+            width: auto;
+            margin: 10px 0;
+            margin-left: 25%;
+            margin-right: 5px;
+            padding: 6px 15px;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, .4);
+            border-radius: 20px;
+            background-attachment: fixed;
+            float: right;
+            clear: both;
+    
+            &::before{
+                content: '';
+                position: absolute;
+                z-index: 0;
+                bottom: 0;
+                right: -8px;
+                height: 20px;
+                width: 20px;
+                background: var(--msg-color);
+                background-attachment: fixed;
+                border-bottom-left-radius: 15px;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                right: -10px;
+                height: 20px;
+                width: 10px;
+                background: #272F4D;
+                background-attachment: fixed;
+                border-bottom-left-radius: 10px;
+            }
+    
+    
+        }
+    }
+    
+        
 `;

@@ -22,9 +22,24 @@ export const Div = styled.section`
         }
     }
 
-    .membre{
+    .chatroom, .membre{
         li{
             cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            &.actif{
+                background: rgb(39, 51, 89, 0.4);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                padding: 6px 8px;
+                border: 1px solid var(--opaque-bg);
+            }
+            &.disabling {
+                pointer-events:none; 
+                color: #555;         
+            }
         }
     }
 `;
