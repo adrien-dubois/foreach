@@ -114,7 +114,7 @@ export const Div = styled.section`
                 margin: 10px 0;
                 border-radius: 55px;
                 display: grid;
-                grid-template-columns: 15% 85%;
+                grid-template-columns: 15% 70% 15%;
                 padding: 0 .4rem;
 
                .icon{
@@ -125,6 +125,17 @@ export const Div = styled.section`
                        font-size: 1.1rem;
                    }
                } 
+
+               .show{
+                   text-align: center;
+                   margin-top: 1rem;
+                   align-items: center;
+                   transition: all .4s ease-in;
+                   svg{
+                       color: var(--grey-color);
+                       font-size: 1.4rem;
+                   }
+               }
 
                input{
                    background: none;

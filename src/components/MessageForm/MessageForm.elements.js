@@ -2,6 +2,28 @@ import styled from 'styled-components'
 
 export const Div = styled.section`
 
+    .room-info{
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: var(--ubuntu-font);
+        font-size: 2rem;
+        font-style: italic;
+        margin-top: -10px;
+        margin-bottom: 8px;
+        position: relative;
+        text-align: center;
+
+        &::before{
+            content: attr(data-text);
+            display: block;
+            font-size: 2.1rem;
+            opacity: .08;
+            position: absolute;
+            bottom: -30%;
+            left: 1rem;
+            transform: translateX(24rem);
+        }
+    }
     .msg-container{
         border: 1px solid var(--grey-color);
         border-radius: 0 0 6px 6px;
@@ -71,6 +93,7 @@ export const MsgOutput = styled.div`
     .alert{
         padding: 1rem .8rem;
         width: 100%;
+        height: 70px;
         text-align: center;
         font-style: italic;
         font-weight: 500;
@@ -81,11 +104,42 @@ export const MsgOutput = styled.div`
         border: 1px solid rgba(0, 0, 0, 0.3);
     }
 
+    .private-info{
+        position: sticky;
+        padding: 1rem .8rem;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        font-weight: 500;
+        background: rgb(39, 51, 89, 0.4);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__name{
+            display: flex;
+            align-items: center;
+            
+            &__picture{
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-left: 10px;
+            }
+        }
+    }
+
     .msg-wrapper{
 
         &__date{
             padding: 1rem .8rem;
-            width: 100%;
+            width: 150px;
+            margin: 0 auto;
             text-align: center;
             font-weight: 500;
             background: rgb(39, 51, 89, 0.4);
@@ -93,6 +147,7 @@ export const MsgOutput = styled.div`
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
         }
         &__msg{
             position: relative;
@@ -133,6 +188,7 @@ export const MsgOutput = styled.div`
             &__timestamp-left{
                 font-weight: 300;
                 font-size: .8rem;
+                margin-top: 10px;
             }
     
             &::before{
@@ -165,7 +221,8 @@ export const MsgOutput = styled.div`
             position: relative;
             font-size: 1rem;
             background: var(--incoming-color);
-            color: var(--black-color);
+            color: var(--welcome-bg);
+            font-weight: 600;
             max-width: 80%;
             width: auto;
             margin: 10px 0;
@@ -200,6 +257,7 @@ export const MsgOutput = styled.div`
             &__timestamp-left{
                 font-weight: 300;
                 font-size: .8rem;
+                margin-top: 10px;
             }
 
             &::before{

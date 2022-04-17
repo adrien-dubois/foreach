@@ -27,7 +27,7 @@ function Sidebar() {
       return alert("Veuillez vous identifier");
     }
 
-    socket.emit("join-room", room);
+    socket.emit("join-room", room, currentRoom);
     setCurrentRoom(room);
 
     if (isPublic){

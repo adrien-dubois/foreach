@@ -63,7 +63,7 @@ function MessageForm() {
 
     const today = new Date();
     const minutes = today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
-    const time = today.getHours + ":" + minutes;
+    const time = today.getHours() + ":" + minutes;
     const roomId = currentRoom;
 
     socket.emit('message-room', roomId, message, user, time, todayDate);
@@ -72,9 +72,21 @@ function MessageForm() {
   
   return (
     <Div>
+      {/* IF IN A ROOM */}
+      {user && !privateMemberMsg?._id && <h2 className="room-info" data-text={currentRoom} >{currentRoom}</h2> }
+
       <MsgOutput>
         {!user && <div className="alert">Veuillez vous connecter</div>}
-
+        {/* IF IN A PRIVATE CONV */}
+        {user && privateMemberMsg?._id &&(
+          <>
+            <div className="private-info">
+              <div className="private-info__name">
+                DM avec {privateMemberMsg.name} <img alt='member room' src={privateMemberMsg.picture} className='private-info__name__picture'/>
+              </div>
+            </div>
+          </>
+        )}
           {user &&
              messages.map(({ _id: date, messagesByDate }, idx) => (
 

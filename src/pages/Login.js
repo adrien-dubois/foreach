@@ -10,6 +10,7 @@ import {
   FaEnvelope, 
   FaGoogle 
 } from 'react-icons/fa'
+import { BiShow, BiHide } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../services/appApi'
 import { AppContext } from '../context/appContext'
@@ -22,6 +23,7 @@ function Login() {
     const [loginUser, { isLoading, error }] = useLoginUserMutation();
     const navigate = useNavigate();
     const { socket } = useContext(AppContext)
+    const [passwordShown, setPasswordShown] = useState(false);
 
     function handleLogin(e){
       e.preventDefault();
@@ -36,6 +38,9 @@ function Login() {
         }
       })
     }
+
+    const togglePassword = () => setPasswordShown(!passwordShown);
+    
 
   return (
     
@@ -56,8 +61,13 @@ function Login() {
             className="sign-in-form"
             onSubmit={handleLogin}
           >
-             <h2 className="title">Se connecter</h2>
-             
+            <h2 className="title">Se connecter</h2>
+
+            {error && 
+              <p className="danger">{error.data}</p>
+            }
+
+              {/* EMAIL */}
               <div className="input-field blue-glassmorphism">
                 <div className="icon">
                   <FaEnvelope/>
@@ -71,21 +81,36 @@ function Login() {
                   />
               </div>
 
+              {/* PASSWORD */}
               <div className="input-field blue-glassmorphism">
                 <div className="icon">
                   <FaLock/>
                 </div>
                 <input 
-                  type="password" 
+                  type={passwordShown ? "text" : "password"} 
                   placeholder='Mot de passe'
                   onChange={ (e) => setPassword(e.target.value) }
                   value={password}
                   required
                 />
+                <div 
+                  className="show" 
+                  onClick={togglePassword}
+                >
+                  {passwordShown ? <BiHide/> : <BiShow/>}
+                </div>
               </div>
              
+             {/* SUBMIT */}
              <button type="submit"  className='btn solid'>
-               Connexion
+               {isLoading ? (
+                 <div className="spinner">
+                  <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                  </svg>
+                 </div>
+                 
+               ) : "Connexion"}
              </button>
 
              <p className="register-text">

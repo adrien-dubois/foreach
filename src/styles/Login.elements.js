@@ -1,4 +1,16 @@
 import styled from 'styled-components'
+import { keyframes } from 'styled-components';
+
+const animate = keyframes`
+    0%,100% {stroke-dashoffset: 440;}
+    50% { stroke-dashoffset: 0; }
+    50.1% { stroke-dashoffset: 880; }
+`;
+
+const rotate = keyframes`
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+`;
 
 export const Div = styled.section`
     background-image: var(--welcome-gradient);
@@ -84,6 +96,12 @@ export const Div = styled.section`
                 -webkit-background-clip: text;
                 color: transparent;
             }
+
+            .danger{
+                color: var(--error-color);
+                font-weight: 600;
+                text-transform: uppercase;
+            }
             
             .input-field{
                 max-width: 380px;
@@ -92,7 +110,7 @@ export const Div = styled.section`
                 margin: 10px 0;
                 border-radius: 55px;
                 display: grid;
-                grid-template-columns: 15% 85%;
+                grid-template-columns: 15% 70% 15%;
                 padding: 0 .4rem;
 
                .icon{
@@ -103,6 +121,17 @@ export const Div = styled.section`
                        font-size: 1.1rem;
                    }
                } 
+
+               .show{
+                   text-align: center;
+                   margin-top: 1rem;
+                   align-items: center;
+                   transition: all .4s ease-in;
+                   svg{
+                       color: var(--grey-color);
+                       font-size: 1.4rem;
+                   }
+               }
 
                input{
                    background: none;
@@ -178,6 +207,28 @@ export const Div = styled.section`
 
         &:hover{
             background-position: right center;
+        }
+
+        .spinner{
+            svg{
+                position: relative;
+                width: 40px;
+                height: 40px;
+                animation: ${rotate} 2s linear infinite;
+
+                circle{
+                    width: 100%;
+                    height: 100%;
+                    fill: none;
+                    stroke-width: 10;
+                    stroke: #00A1FF;
+                    stroke-linecap: round;
+                    transform: translate(5px, 5px);
+                    stroke-dasharray: 440;
+                    stroke-dashoffset: 440;
+                    animation: ${animate} 4s linear infinite;	
+                }
+            }
         }
     }
 

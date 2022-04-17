@@ -15,6 +15,7 @@ import {
 import { Link, useNavigate } from 'react-router-dom'
 import LogoChat from '../assets/user.png'
 import { useSignupUserMutation } from '../services/appApi'
+import { BiShow, BiHide } from 'react-icons/bi'
 
 
 
@@ -26,6 +27,8 @@ function Signup() {
   const [name, setName] = useState('');
   const [signupUser, { isLoading, error }] = useSignupUserMutation();
   const navigate = useNavigate()
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => setPasswordShown(!passwordShown);
 
   // Image upload state
   const [image, setImage] = useState(null)
@@ -148,11 +151,14 @@ function Signup() {
                   <FaLock/>
                 </div>
                 <input 
-                  type="password" 
+                  type={passwordShown ? "text" : "password"}
                   placeholder='Mot de passe'
                   onChange={ (e) => setPassword(e.target.value) }
                   value={password}
                 />
+                <div className="show" onClick={togglePassword}>
+                  {passwordShown ? <BiHide/> : <BiShow/> }
+                </div>
               </div>
              
              {/* SUBMIT */}
