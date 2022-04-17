@@ -109,6 +109,31 @@ export const MsgOutput = styled.div`
             background-attachment: fixed;
             float: right;
             clear: both;
+
+            &__inner{
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+
+                img{
+                    width: 35px;
+                    height: 35px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                &__sender{
+                    font-style: italic;
+                    color: var(--black-color);
+                    font-weight: 600;
+                }
+            }
+
+            &__timestamp-left{
+                font-weight: 300;
+                font-size: .8rem;
+            }
     
             &::before{
                 content: '';
@@ -134,8 +159,73 @@ export const MsgOutput = styled.div`
                 background-attachment: fixed;
                 border-bottom-left-radius: 10px;
             }
-    
-    
+        }
+
+        &__incoming-msg{
+            position: relative;
+            font-size: 1rem;
+            background: var(--incoming-color);
+            color: var(--black-color);
+            max-width: 80%;
+            width: auto;
+            margin: 10px 0;
+            margin-left: 5px;
+            padding: 6px 15px;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, .4);
+            border-radius: 20px;
+            float: left;
+            clear: both;
+            background-attachment: fixed;
+
+            &__inner{
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+
+                img{
+                    width: 35px;
+                    height: 35px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                &__sender{
+                    font-style: italic;
+                    color: var(--black-color);
+                    font-weight: 600;
+                }
+            }
+
+            &__timestamp-left{
+                font-weight: 300;
+                font-size: .8rem;
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                z-index: 0;
+                bottom: 0;
+                left: -8px;
+                height: 20px;
+                width: 20px;
+                background: var(--incoming-color);
+                background-attachment: fixed;
+                border-bottom-right-radius: 15px;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: -10px;
+                height: 20px;
+                width: 10px;
+                background: #272F4D;
+                background-attachment: fixed;
+                border-bottom-right-radius: 10px;
+            }
         }
     }
     

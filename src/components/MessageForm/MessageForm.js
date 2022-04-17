@@ -1,4 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { 
+  useContext, 
+  useEffect, 
+  useRef, 
+  useState 
+} from 'react'
 import { Div, MsgOutput } from './MessageForm.elements'
 import { FaPaperPlane } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
@@ -14,7 +19,11 @@ function MessageForm() {
   } = useContext(AppContext);
   const [message, setMessage] = useState("");
   const user = useSelector((state) => state.user);
+  const messageEndRef = useRef(null);
   
+  useEffect(()=> {
+    scrollToBottom();
+  }, [messages])
 
   function getFormattedDate(){
     const date = new Date();
@@ -32,6 +41,12 @@ function MessageForm() {
   function handleSubmit(e){
 
     e.preventDefault();
+  }
+
+  function scrollToBottom(){
+    messageEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   }
 
   const todayDate = getFormattedDate();
@@ -67,14 +82,23 @@ function MessageForm() {
                 <p className="msg-wrapper__date">{date}</p>
 
                 {messagesByDate?.map(({ content, time, from: sender }, msgIdx) => (
-                  <div className="msg-wrapper__msg" key={msgIdx} >
-                    <p>{content}</p>
+                  <div className={sender?.email == user?.email ? "msg-wrapper__msg" : "msg-wrapper__incoming-msg"} key={msgIdx} >
+
+                    <div className="msg-wrapper__msg__inner">
+                      <img src={sender.picture} alt='sender'/>
+                      <p className="msg-wrapper__msg__inner__sender">{sender._id == user?._id ? "Vous" : sender.name}</p>
+                    </div>
+
+                    <p className='msg-wrapper__msg__txt'>{content}</p>
+                    <p className="msg-wrapper__msg__timestamp-left">{time}</p>
                   </div>
                 ))}
 
                 
               </div>
           ))}
+
+          <div ref={messageEndRef}/>
       </MsgOutput>
         <form action="" onSubmit={handleSubmit}>
           <div className="msg-container">

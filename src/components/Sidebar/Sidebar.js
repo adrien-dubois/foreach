@@ -89,6 +89,7 @@ useEffect(()=>{
 
   return (
     <>
+    {/* CHATROOMS PART */}
       <Div>
         <h2>Chatrooms disponibles</h2>
         <ul className='chatroom'>
@@ -112,6 +113,7 @@ useEffect(()=>{
           ))}
         </ul>
 
+        {/* MEMBERS PART */}
         <h2 className='chat'>Chaters</h2>
         <ul className='membre'>
           {members.map((member) => (
