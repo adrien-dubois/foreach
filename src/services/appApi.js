@@ -27,6 +27,15 @@ const appApi = createApi({
             }),
         }),
 
+        // update
+        updateUser: builder.mutation({
+            query: (user) => ({
+                url:'/users/update',
+                method: "PATCH",
+                body: user,
+            }),
+        }),
+
         //logout
         logoutUser: builder.mutation({
             query: (payload) => ({
@@ -38,6 +47,6 @@ const appApi = createApi({
     }),
 });
 
-export const { useSignupUserMutation, useLoginUserMutation, useLogoutUserMutation } = appApi;
+export const { useSignupUserMutation, useLoginUserMutation, useUpdateUserMutation, useLogoutUserMutation } = appApi;
 
 export default appApi;

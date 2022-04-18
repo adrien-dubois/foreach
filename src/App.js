@@ -12,6 +12,7 @@ import GlobalStyle from './GlobalStyles';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { AppContext, socket } from './context/appContext'
+import Update from './pages/Update';
 
 function App() {
   const [rooms, setRooms] = useState([]);
@@ -49,6 +50,7 @@ function App() {
             </>
           )}
           <Route path="/chat" element={<Chat/>} />
+          <Route path="/update" element={<Update/>} />
         </Routes>
       </Router>
    </AppContext.Provider>

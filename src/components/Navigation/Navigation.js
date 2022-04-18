@@ -18,6 +18,7 @@ import {
     NavBtnLink,
     Action
 } from './Navigation.elements';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
 
@@ -123,13 +124,15 @@ const Navigation = () => {
                                 <h3>{user.name}</h3>
                                 <ul>
                                     <li>
-                                        <button>
-                                            <FaUser/>Profil
-                                        </button> 
+                                        <Link to="/update">
+                                            <button>
+                                                <FaUser/>Profil
+                                            </button> 
+                                        </Link>
                                     </li>
                                     <li>
                                         <button>
-                                            <FaUser/>Profil
+                                            <FaUser/>Autre
                                         </button> 
                                     </li>
                                     <li>
