@@ -47,6 +47,7 @@ export const Div = styled.section`
                 width: 100px;
                 height: 100px;
                 margin: 0 auto;
+                margin-bottom: 1.4rem;
                 position: relative;
 
                 &__img{
@@ -85,7 +86,7 @@ export const Div = styled.section`
             svg{
                 position: absolute;
                 right: -8%;
-                bottom: -52%;
+                bottom: -45%;
             }
         }
 
@@ -96,6 +97,12 @@ export const Div = styled.section`
             flex-direction: column;
             padding: 0 5rem;
             overflow: hidden;
+
+            .danger{
+                color: var(--error-color);
+                font-weight: 600;
+                text-transform: uppercase;
+            }
 
             .title{
                 font-size: 2.2rem;

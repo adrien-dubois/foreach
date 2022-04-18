@@ -118,6 +118,9 @@ function Signup() {
                 onChange={validateImg}
                />
              </div>
+
+             {error && 
+             <p className="danger">{error.data}</p> }
              
              {/* EMAIL */}
               <div className="input-field blue-glassmorphism">
@@ -163,7 +166,7 @@ function Signup() {
              
              {/* SUBMIT */}
              <button type="submit" className='btn solid'>
-              {uploadingImg ? 'Inscription en cours ...' : 'Inscription' }  
+              {uploadingImg || isLoading ? 'Inscription en cours ...' : 'Inscription' }  
              </button> 
 
              <p className="register-text">
