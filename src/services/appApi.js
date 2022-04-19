@@ -30,8 +30,8 @@ const appApi = createApi({
         // update
         updateUser: builder.mutation({
             query: (user) => ({
-                url:'/users/update',
-                method: "PATCH",
+                url:"/users/update",
+                method: "PUT",
                 body: user,
             }),
         }),

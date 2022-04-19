@@ -68,7 +68,7 @@ const Navigation = () => {
                     <NavLogo to="/" onClick={closeMobileMenu}>
                         <NavIcon width={50} height={50} fill="var(--white-color)"/>
                         <h1 className="text-gradient">
-                            FOR <span> EACH</span>
+                            WHITE <span> RABBIT</span>
                         </h1>
                     </NavLogo>
                     <MobileIcon onClick={handleClick} >
@@ -88,14 +88,15 @@ const Navigation = () => {
                             </NavLinks>
                         </NavItem>
 
+                        {!user &&
+                        <>
                         <NavItem>
                             <NavLinks to='/signup'>
                                 Inscription
                             </NavLinks>
                         </NavItem>
 
-                        {/* IF USER IS CONECTED DONT SHOW LOGIN BUTTON */}
-                        {!user &&
+                        
                         <NavItemBtn>
                             {button ? (
                                 <NavBtnLink to="/login">
@@ -111,6 +112,7 @@ const Navigation = () => {
                                 </NavBtnLink> 
                             )}
                         </NavItemBtn>
+                        </>
                         }
 
                         {/* USER MENU */}

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Container } from '../../GlobalStyles'
-import { Logo } from '../SvgComponent'
+import { LogoWR } from '../SvgComponent'
 
 
 export const Nav = styled.nav`
@@ -60,10 +60,10 @@ export const NavLogo = styled(Link)`
     }
 `;
 
-export const NavIcon = styled(Logo)`
+export const NavIcon = styled(LogoWR)`
     margin: 0.5rem;
     width: auto;
-    height: 70px;
+    height: 90px;
 `;
 
 export const MobileIcon = styled.div`
